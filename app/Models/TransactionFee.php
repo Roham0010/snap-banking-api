@@ -28,6 +28,10 @@ class TransactionFee extends Model
         'transaction_id', 'fee_amount',
     ];
 
+    protected $attributes = [
+        "fee_amount" => 500 // Can also be a env var if changes a lot
+    ];
+
     /**
      * Get the transaction related to this transaction fee.
      *

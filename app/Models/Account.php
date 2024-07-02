@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * Class Account Model
  *
+ * @property int $id
  * @property int $user_id
  * @property string $account_number
  * @property float $balance

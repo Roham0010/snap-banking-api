@@ -12,6 +12,7 @@ use Illuminate\Notifications\Notifiable;
 /**
  * Class User Model
  *
+ * @property int $id
  * @property string $name
  * @property string $phone
  * @property-read Collection|Account[] $accounts {@see User::accounts()}
