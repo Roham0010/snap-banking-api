@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\TransactionRequest;
 use App\Models\Card;
 use App\Models\Transaction;
+use App\Notifications\SMSNotification;
 use Illuminate\Support\Facades\DB;
 
 class TransactionController extends Controller
@@ -79,7 +80,7 @@ class TransactionController extends Controller
                 "fee_amount" => config('bankingapi.transaction_fee') // Can also be a env var if changes a lot
             ]);
 
-            // TODO: SMS notifications
+            $this->sendSMSNotification($sourceCard, $destinationCard);
 
             DB::commit();
 
@@ -88,5 +89,11 @@ class TransactionController extends Controller
             DB::rollBack();
             return response()->json(['error' => 'Transaction failed. ' . $e->getMessage()], 500);
         }
+    }
+
+    private function sendSMSNotification(Card $sourceCard, Card $destinationCard)
+    {
+        $sourceCard->account->user->notify(new SMSNotification(config('sms_messages.debit')));
+        $destinationCard->account->user->notify(new SMSNotification(config('sms_messages.credit')));
     }
 }

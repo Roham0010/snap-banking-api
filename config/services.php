@@ -13,6 +13,15 @@ return [
     | a conventional file to locate the various service credentials.
     |
     */
+    'sms' => [
+        'default' => env('SMS_SERVICE', 'kavenegar'),
+        'kavenegar' => [
+            'api_key' => env('KAVENEGAR_API_KEY'),
+        ],
+        'ghasedak' => [
+            'api_key' => env('GHASEDAK_API_KEY'),
+        ],
+    ],
 
     'postmark' => [
         'token' => env('POSTMARK_TOKEN'),
