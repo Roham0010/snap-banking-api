@@ -27,9 +27,9 @@
     URL: api/users/top-users
 
 ### Notes:
-
+-   In the real world because it's a full API I would do it with Lumen, but for a test project, I just preferred Laravel.
 -   I have tested both SMS services here is the Kavenegar panel [report](https://prnt.sc/-fUGpvJqBc5f)
--   There was an issue regarding this version of Laravel-Carbon I am using that I had to use the UTC timezone [Reported it Here](https://github.com/laravel/framework/issues/51997)
+-   There was an issue regarding this version of Laravel-Carbon I am using that I had to use the UTC timezone. [Reported it Here](https://github.com/laravel/framework/issues/51997)
 -   Despite that the document specified the transaction fee is on the bank, I assume based on reality should be deducted from the source card account and the enough balance validation should also consider the fee.
 -   It wasn't explained if a user can transfer money between their cards, I consider yes and consider the fee happens on there too.
 -   I assumed we should be okay with dashed credit numbers like 1111-1111-1111-1111
