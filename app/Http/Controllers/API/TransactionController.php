@@ -93,7 +93,7 @@ class TransactionController extends Controller
 
     private function sendSMSNotification(Card $sourceCard, Card $destinationCard)
     {
-        $sourceCard->account->user->notify(new SMSNotification(config('sms_messages.debit')));
-        $destinationCard->account->user->notify(new SMSNotification(config('sms_messages.credit')));
+        $sourceCard->account->user->notify(new SMSNotification(config('sms_messages.transaction.debit')));
+        $destinationCard->account->user->notify(new SMSNotification(config('sms_messages.transaction.credit')));
     }
 }
