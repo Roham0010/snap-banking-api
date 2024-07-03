@@ -2,18 +2,18 @@
 
 ## Instructions to setup and run the project
 
--   Run cp .env.example .env
--   Change the .env file variable if needed
--   Run composer install
--   Run php artisan key:generate
--   I have put two phone numbers for simplicity of testing the project and receiving SMS as PHONE1 and PHONE2 change them to your preferences.
--   Create a database on mysql database name snap_banking(or whatever you wish but don't forget to change the name in .env too).
--   Run php artisan migrate
--   Run php artisan db:seed
--   Run php artisan route:list to see the routes and test the project
--   Rup php artisan test for tests
+-   Run `cp .env.example .env`
+-   Change the .env file variables if needed
+-   Run `composer install`
+-   Run `php artisan key:generate`
+-   I have put two phone numbers for simplicity of testing the project and receiving SMS as PHONE1 and PHONE2 in the .env file, change them to your preferences.
+-   Create a MySQL database named snap_banking(or whatever you wish but don't forget to change the name in .env too).
+-   Run `php artisan migrate`
+-   Run `php artisan db:seed`
+-   Run `php artisan route:list` to see the routes and test the project
+-   Rup `php artisan test` for tests
 
-## Sample Rquest data:
+## Sample Request data:
 
 -   New Card Transaction:
     URL:
@@ -28,8 +28,8 @@
 
 ### Notes:
 
--   I have tested both SMS services here is the kavenegar panel [report](https://prnt.sc/-fUGpvJqBc5f)
+-   I have tested both SMS services here is the Kavenegar panel [report](https://prnt.sc/-fUGpvJqBc5f)
 -   There was an issue regarding this version of Laravel-Carbon I am using that I had to use the UTC timezone [Reported it Here](https://github.com/laravel/framework/issues/51997)
--   Despite that the document specified the transaction fee is on the bank, but I asume based on the reality should be deducted from the source card acount and the enaugh balance validation should also consider the fee too.
--   It wasn't explained if a user can transfer money between it's own cards, I consider yes and consider the fee happens on there too.
--   I asumed we should be okay with dashed credit numbers like 1111-1111-1111-1111
+-   Despite that the document specified the transaction fee is on the bank, I assume based on reality should be deducted from the source card account and the enough balance validation should also consider the fee.
+-   It wasn't explained if a user can transfer money between their cards, I consider yes and consider the fee happens on there too.
+-   I assumed we should be okay with dashed credit numbers like 1111-1111-1111-1111
